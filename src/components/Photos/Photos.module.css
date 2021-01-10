@@ -1,0 +1,49 @@
+.headerBg {
+  background-color: #dae3f4;
+  color: #5294d1;
+  text-align: center;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  font-weight: normal;
+}
+.actionBar {
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  display: flex;
+  width: 100%;
+}
+.search {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+.sort {
+  width: 25%;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 1em;
+}
+.borderBottom {
+  border-bottom: 1px solid black;
+  overflow: hidden;
+}
+.photos {
+  display: grid;
+  align-items: center;
+}
+.padTop {
+  padding-top: 0.5em;
+}
+.pointer {
+  cursor: pointer;
+  color: #a1a3cb;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.tdPad {
+  padding-right: 5em;
+  padding-left: 5em;
+  padding-top: 2em;
+}

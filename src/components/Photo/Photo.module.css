@@ -1,0 +1,67 @@
+.image {
+  width: 25em;
+  height: 13em;
+}
+.container {
+  text-align: center;
+  border: 1px solid black;
+  display: inherit;
+  height: 28em;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.content {
+  display: flex;
+  height: 1.8em;
+  border-bottom: 1px solid black;
+}
+.comment {
+  background-color: #e3efd9;
+  margin: 0;
+  text-align: left;
+  padding-left: 0.5em;
+  border-bottom: 1px solid black;
+  height: 1.8em;
+  padding-top: 0.4em;
+}
+.categoryColor {
+  color: #708065;
+  font-weight: bold;
+}
+.postComment {
+  display: flex;
+  border-bottom: 1px solid black;
+}
+.post {
+  background-color: #9fc3e3;
+  z-index: 5;
+  vertical-align: middle;
+  cursor: pointer;
+  padding-top: 0.5em;
+  width: 25%;
+}
+.commentInput {
+  width: 90%;
+}
+.input {
+  width: 100%;
+}
+.like {
+  color: #a1a3cb;
+  cursor: pointer;
+}
+.likes {
+  color: #a06244;
+}
+.likeBlock {
+  width: 75%;
+  text-align: left;
+  padding-left: 1em;
+}
+.category {
+  width: 15%;
+}
