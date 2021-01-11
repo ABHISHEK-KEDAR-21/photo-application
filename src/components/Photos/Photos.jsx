@@ -16,7 +16,7 @@ class Photos extends Component {
     }
 
     componentDidMount() {
-        axios.get('/Lokenath/MyRepo/master/Test/package.json').then(res => {
+        axios.get('https://raw.githubusercontent.com/Lokenath/MyRepo/master/Test/package.json').then(res => {
             if (res.status === 200) {
                 let { pics } = res.data;
                 pics = pics.map(i => {
