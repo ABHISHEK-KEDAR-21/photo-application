@@ -65,3 +65,7 @@
 .category {
   width: 15%;
 }
+.commentSection {
+  max-height: 11em;
+  overflow-y: auto;
+}

@@ -8,14 +8,28 @@ class Photo extends Component {
         super(props)
         this.modal = React.createRef()
         this.modalImage = React.createRef()
+        this.state = {
+            ...props.data,
+            comment: ''
+        }
     }
 
-    likePhoto(id) {
-        console.log(id)
+    likePhoto(photo) {
+        // console.log(photo)
+        if (this.state.showLike)
+            this.setState({ likes: photo.likes + 1, showLike: false }, () => this.props.updatePic(this.state))
+        else
+            this.setState({ likes: photo.likes - 1, showLike: true }, () => this.props.updatePic(this.state))
+
     }
 
-    postComment(id) {
-        console.log(id)
+    postComment(photo) {
+        if (this.state.comment) {
+            // console.log(photo)
+            photo.comments.push(this.state.comment)
+            photo.comment = ''
+            this.setState({ ...photo }, () => this.props.updatePic(photo))
+        }
     }
 
     openImage(url) {
@@ -30,14 +44,15 @@ class Photo extends Component {
     }
 
     render() {
-        const data = this.props.data;
+        const data = this.state;
+        // console.log(this.state)
         return (
             <div className={css.container}>
                 <img onClick={() => { this.openImage(data.url) }} className={css.image} src={data.url} alt={data.id}></img>
 
                 <div className={css.content}>
                     <div className={css.likeBlock}>
-                        <span className={css.likes}>{data.likes}</span> <u className={css.like} onClick={() => { this.likePhoto(data.id) }}>Like</u>
+                        <span className={css.likes}>{data.likes}</span> <u className={css.like} onClick={() => { this.likePhoto(data) }}>{data.showLike ? 'Like' : 'Unlike'}</u>
                     </div>
                     <div className={css.category}>
                         <span className={css.categoryColor}>{data.category}</span>
@@ -46,14 +61,14 @@ class Photo extends Component {
 
                 <div className={css.postComment}>
                     <div className={css.commentInput}>
-                        <input className={css.input} type="text" placeholder="Type your comment here ..."></input>
+                        <input value={this.state.comment} onChange={(e) => this.setState({ comment: e.target.value })} className={css.input} type="text" placeholder="Type your comment here ..." onKeyDown={(e) => { if (e.key === 'Enter') { this.postComment(data) } }}></input>
                     </div>
-                    <div className={css.post} onClick={() => { this.postComment(data.id) }}>
+                    <div className={css.post} onClick={() => { this.postComment(data) }}>
                         <span>POST</span>
                     </div>
                 </div>
 
-                <div>
+                <div className={css.commentSection}>
                     {data.comments.map((i) => {
                         return <p key={i} className={css.comment}>{i}</p>
                     })}

@@ -18,12 +18,28 @@ class Photos extends Component {
     componentDidMount() {
         axios.get('/Lokenath/MyRepo/master/Test/package.json').then(res => {
             if (res.status === 200) {
-                const { pics } = res.data;
+                let { pics } = res.data;
+                pics = pics.map(i => {
+                    i.showLike = true;
+                    return i;
+                })
                 // console.log(pics)
                 this.setState({ pics, displayData: Utils.chunkArray(pics) })
             }
         }).catch(err => {
             console.error('Error-', err)
+        })
+    }
+
+    updatePic(photo) {
+        const self = this;
+        self.setState({
+            pics: self.state.pics.map((i) => {
+                if (i.id === photo.id) {
+                    return photo;
+                }
+                return i;
+            })
         })
     }
 
@@ -51,7 +67,7 @@ class Photos extends Component {
     }
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <>
                 <h2 className={`${css.headerBg} ${css.borderBottom}`}>Imaginary</h2>
@@ -72,7 +88,7 @@ class Photos extends Component {
                                         {
                                             i.map((j) => {
                                                 return <td className={css.tdPad} key={j.id}>
-                                                    <Photo data={j}></Photo>
+                                                    <Photo data={j} updatePic={this.updatePic.bind(this)}></Photo>
                                                 </td>
                                             })
                                         }
