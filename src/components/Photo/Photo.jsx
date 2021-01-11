@@ -38,7 +38,7 @@ class Photo extends Component {
     }
 
     closeModal(e) {
-        if (e.target == this.modal.current) {
+        if (e.target === this.modal.current) {
             this.modal.current.style.display = "none"
         }
     }
@@ -69,8 +69,8 @@ class Photo extends Component {
                 </div>
 
                 <div className={css.commentSection}>
-                    {data.comments.map((i) => {
-                        return <p key={i} className={css.comment}>{i}</p>
+                    {data.comments.map((i, idx) => {
+                        return <p key={`${i}${idx}`} className={css.comment}>{i}</p>
                     })}
                 </div>
 

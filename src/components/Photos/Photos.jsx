@@ -27,7 +27,7 @@ class Photos extends Component {
                 this.setState({ pics, displayData: Utils.chunkArray(pics) })
             }
         }).catch(err => {
-            console.error('Error-', err)
+            // console.error('Error-', err)
         })
     }
 
