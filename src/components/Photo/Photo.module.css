@@ -41,7 +41,7 @@
   z-index: 5;
   vertical-align: middle;
   cursor: pointer;
-  padding-top: 0.5em;
+  padding-top: 0.1em;
   width: 25%;
 }
 .commentInput {
