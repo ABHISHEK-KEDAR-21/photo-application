@@ -50,6 +50,7 @@
 .input {
   width: 100%;
   border-color: transparent;
+  outline: none;
 }
 .like {
   color: #a1a3cb;
